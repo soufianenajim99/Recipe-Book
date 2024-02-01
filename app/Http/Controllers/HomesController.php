@@ -9,9 +9,36 @@ class HomesController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+     private static function getdata(){
+        return [
+            [
+                "id"=> 1,
+                "name"=> "tajine",
+                "description"=> "fiehfihifhfihei",
+                "ingrediant"=> "refe,frefe,ferfe"
+            ],
+            [
+                "id"=> 2,
+                "name"=> "tcscajine",
+                "description"=> "fiehfihifhfihei",
+                "ingrediant"=> "refe,frefe,ferfe",
+            ],
+            [
+                "id"=> 3,
+                "name"=> "tajicscsne",
+                "description"=> "fiehfcsihifhfihei",
+                "ingrediant"=> "refe,frefe,ferfe",
+            ],
+
+            
+        ];
+     }
     public function index()
     {
-        return view("index");
+        return view("index",[
+            'recipes'=> self::getdata()
+        ]);
     }
 
     /**
