@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link href={{url('/src/output.css')}} rel="stylesheet">
 
     <title>Document</title>
@@ -43,11 +44,8 @@
     <div class="md:hidden">
         <div id="burger-menu"
             class="absolute flex hidden flex-col items-center space-y-6 font-bold bg-gray-50 py-8 left-6 right-6 drop-shadow-lg border border-gray-300">
-            <a href="">Wiki</a>
-        
-            <a href="auth/dashred/">Dashboard</a>
-        
-          
+            <a href="{{route('recipe.create')}}" class=" inline-flex items-center rounded-md border border-transparent bg-rose-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2">New Recipe</a>
+
             <a href="#">Contact</a>
        
             <a href="">About</a>
@@ -260,5 +258,7 @@
     </div>
   </section>
 </div>
+<script src="{{url('./js/main.js')}}"></script>
+
 </body>
 </html>

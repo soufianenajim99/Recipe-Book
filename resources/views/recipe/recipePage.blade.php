@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700" rel="stylesheet" />
   <link href={{url('/src/output.css')}} rel="stylesheet">
 
@@ -11,51 +12,49 @@
 </head>
 <body>
 <div>
-  <header class="sticky inset-0 z-50 border-b border-slate-100 bg-white/80 backdrop-blur-lg">
-    <nav
-        class="mx-auto flex justify-around max-w-screen gap-8 px-6 transition-all duration-200 ease-in-out lg:px-12">
-        <div class="relative flex items-center justify-center">
-            <a href="{{ route('home.index')}}">
-                <img src='/img/—Pngtree—fast food cooking_4103415.png' loading="lazy" style="color:transparent" width="80"
-                    height="80"></a>
-        </div>
-        <ul class="hidden items-center justify-center gap-6 md:flex">
-            <li class="pt-1.5 font-dm text-sm font-medium text-slate-700">
-                <a href="{{route('recipe.create')}}" class="ml-6 inline-flex items-center rounded-md border border-transparent bg-rose-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2">New Recipe</a>
-            </li>
-            <li class="pt-1.5 font-dm text-sm font-medium text-slate-700">
-             
-              
-                <a href="#">Contact</a>
-     
-            </li>
-            <li class="pt-1.5 font-dm text-sm font-medium text-slate-700">
-                <a href="#">About </a>
-            </li>
-        </ul>
-    
-    
-    
-        <button id="burger-btn" class="md:hidden"><i class="fa-solid fa-bars text-2xl"></i></button>
-  
-  
-    </nav>
-    <div class="md:hidden">
-        <div id="burger-menu"
-            class="absolute flex hidden flex-col items-center space-y-6 font-bold bg-gray-50 py-8 left-6 right-6 drop-shadow-lg border border-gray-300">
-            <a href="">Wiki</a>
-        
-            <a href="auth/dashred/">Dashboard</a>
-          
-            <a href="#">Contact</a>
-       
-            <a href="">About</a>
+    <header class="sticky inset-0 z-50 border-b border-slate-100 bg-white/80 backdrop-blur-lg">
+        <nav
+            class="mx-auto flex justify-around max-w-screen gap-8 px-6 transition-all duration-200 ease-in-out lg:px-12">
+            <div class="relative flex items-center justify-center">
+                <a href="{{ route('home.index')}}">
+                    <img src='/img/—Pngtree—fast food cooking_4103415.png' loading="lazy" style="color:transparent" width="80"
+                        height="80"></a>
+            </div>
+            <ul class="hidden items-center justify-center gap-6 md:flex">
+                <li class="pt-1.5 font-dm text-sm font-medium text-slate-700">
+                    <a href="{{route('recipe.create')}}" class="ml-6 inline-flex items-center rounded-md border border-transparent bg-rose-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2">New Recipe</a>
+                </li>
+                <li class="pt-1.5 font-dm text-sm font-medium text-slate-700">
+                 
+                  
+                    <a href="#">Contact</a>
          
-  
+                </li>
+                <li class="pt-1.5 font-dm text-sm font-medium text-slate-700">
+                    <a href="#">About </a>
+                </li>
+            </ul>
+      
+           
+          
+            <button id="burger-btn" class="md:hidden"><i class="fa-solid fa-bars text-2xl"></i></button>
+      
+      
+        </nav>
+        <div class="md:hidden">
+            <div id="burger-menu"
+                class="absolute flex hidden flex-col items-center space-y-6 font-bold bg-gray-50 py-8 left-6 right-6 drop-shadow-lg border border-gray-300">
+                <a href="{{route('recipe.create')}}" class=" inline-flex items-center rounded-md border border-transparent bg-rose-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2">New Recipe</a>
+    
+                <a href="#">Contact</a>
+           
+                <a href="">About</a>
+             
+      
+            </div>
+      
         </div>
-  
-    </div>
-  </header>
+      </header>
   
  
   
@@ -79,7 +78,7 @@
                 <img class="max-w-sm mx-auto my-4 rounded-lg shadow" src="{{ asset($recipe['image']) }}" alt="Chocolate Cake" class="mb-4 rounded-lg shadow-md">
              
                 <h2 class="text-xl font-semibold mb-2">Instructions</h2>
-                <p class="text-gray-900 mb-4">{{
+                <p class="text-gray-900 mb-4 break-words">{{
                     $recipe['description']
                    }}</p>
      <p class="text-gray-700 text-xs mt-4">created_at</p>
@@ -205,5 +204,6 @@
     </div>
   </section>
 </div>
+<script src="{{url('./js/main.js')}}"></script>
 </body>
 </html>
