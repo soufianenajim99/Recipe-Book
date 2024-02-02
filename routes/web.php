@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomesController;
+use App\Http\Controllers\RecipesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,9 +20,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/home', function () {
-//     return view('home');
-// });
+Route::get('/test', function () {
+    return view('test');
+});
 
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
@@ -30,3 +31,4 @@ Route::get('/admin/dashboard', function () {
 Route::get('/admin/dashboard',[AdminController::class,'dashboard'])->name('admin.dashboard');
 
 Route::resource('home',HomesController::class);
+Route::resource('recipe',RecipesController::class);
