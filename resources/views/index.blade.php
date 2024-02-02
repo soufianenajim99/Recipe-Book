@@ -21,7 +21,7 @@
         </div>
         <ul class="hidden items-center justify-center gap-6 md:flex">
             <li class="pt-1.5 font-dm text-sm font-medium text-slate-700">
-                <a href="{{ route('admin.dashboard')}}">Dashboard</a>
+                <a href="{{route('recipe.create')}}" class="ml-6 inline-flex items-center rounded-md border border-transparent bg-rose-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2">New Recipe</a>
             </li>
             <li class="pt-1.5 font-dm text-sm font-medium text-slate-700">
              
@@ -46,6 +46,7 @@
             <a href="">Wiki</a>
         
             <a href="auth/dashred/">Dashboard</a>
+        
           
             <a href="#">Contact</a>
        
@@ -75,19 +76,22 @@
             </div>
             <div class="flex w-11/12 md:w-8/12 xl:w-6/12">
                 <div class="flex rounded-md w-full">
-                    <input type="text" name="q"
-                        class="w-full p-3 rounded-md rounded-r-none border-2 border-gray-400 placeholder-current dark:bg-white-500  dark:text-gray-300 "
-                        placeholder="keyword" />
-                    <button
-                        class="inline-flex items-center gap-2 bg-orange-600 text-white text-lg font-semibold py-3 px-6 rounded-r-md">
-                        <span>Find</span>
-                        <svg class="text-gray-200 h-5 w-5 p-0 fill-current" xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px"
-                            viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 56.966 56.966;"
-                            xml:space="preserve">
-                            <path
-                                d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z" />
-                        </svg>
+                    <form action="#" method="GET" class="flex w-full">
+                        <input type="text" name="search"
+                            class="w-full p-3 rounded-md rounded-r-none border-2 border-gray-400  dark:bg-white-500 "
+                            placeholder="keyword" value="{{request('search')}}" />
+                        <button
+                            class="inline-flex items-center gap-2 bg-orange-600 text-white text-lg font-semibold py-3 px-6 rounded-r-md">
+                            <span>Find</span>
+                            <svg class="text-gray-200 h-5 w-5 p-0 fill-current" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px"
+                                viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 56.966 56.966;"
+                                xml:space="preserve">
+                                <path
+                                    d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z" />
+                            </svg>
+
+                    </form>
                     </button>
                 </div>
             </div>
@@ -102,11 +106,9 @@
         <div class=" flex items-center pb-2 pr-2  gap-10  uppercase">
             <a href="home/explore"
                 class="font-semibold inline-block border-b-2 border-orange-600 pb-2 pr-2 text-orange-600">Explore</a>
-            <a href="home/lawiki" class="font-semibold inline-block">Latest Recipes</a>
-            <a href="home/lacate" class="font-semibold inline-block">Latest Categories</a>
         </div>
   
-        <a href="home/explore">See All</a>
+       
     </div>
   
   
@@ -168,21 +170,7 @@
   
   
     </div>
-    <div
-        class="fter:h-px my-24 flex items-center justify-center mt-12 before:h-px before:flex-1  before:bg-gray-300 before:content-[''] after:h-px after:flex-1 after:bg-gray-300  after:content-['']">
-        <a href="home/explore">
-            <button type="button"
-                class="flex items-center rounded-full border border-gray-300 bg-secondary-50 px-3 py-2 text-center text-sm font-medium text-gray-900 hover:bg-gray-100">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                    class="mr-1 h-4 w-4">
-                    <path fill-rule="evenodd"
-                        d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                        clip-rule="evenodd" />
-                </svg>
-                View More
-            </button>
-        </a>
-    </div>
+ 
   
   
   

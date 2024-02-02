@@ -76,7 +76,21 @@ class RecipesController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'titre'=>'required',
+            'description'=> 'required',
+            'image'=> 'required',
+       ]);
+
+       $recipe= Recipe::findOrFail($id);
+       move_uploaded_file($_FILES["image"]["tmp_name"],'C:\laragon\www\Recipe-Book\public\img\\'.$_FILES["image"]["name"]);
+       $recipe->titre = strip_tags($request->input('titre'));
+       $recipe->description = strip_tags($request->input('description'));
+       $recipe ->image = 'img/'.$_FILES["image"]["name"];
+
+       $recipe->save();
+
+       return redirect()->route('recipe.show',['recipe'=>$id]);
     }
 
     /**
@@ -84,6 +98,9 @@ class RecipesController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $recipe= Recipe::findOrFail($id);
+ 
+        $recipe->delete();
+        return redirect()->route('home.index');
     }
 }

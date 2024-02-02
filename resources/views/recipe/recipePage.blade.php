@@ -21,7 +21,7 @@
         </div>
         <ul class="hidden items-center justify-center gap-6 md:flex">
             <li class="pt-1.5 font-dm text-sm font-medium text-slate-700">
-                <a href="{{ route('admin.dashboard')}}">Dashboard</a>
+                <a href="{{route('recipe.create')}}" class="ml-6 inline-flex items-center rounded-md border border-transparent bg-rose-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2">New Recipe</a>
             </li>
             <li class="pt-1.5 font-dm text-sm font-medium text-slate-700">
              
@@ -85,18 +85,22 @@
      <p class="text-gray-700 text-xs mt-4">created_at</p>
      <p class="text-gray-700 text-sm ">{{$recipe['created_at']}}</p>
     
-                <div class="text-center">
-                    <a href="{{ route('recipe.delete',['recipe'=>$recipe['id']])}}">
-                        <button class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-800">Delete</button>
-                    </a>
-                    <a href="{{ route('home.index',['recipe'=>$recipe['id']])}}">
-                    <button class="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800">Retour</button>
-                </a>
-
+                <div class="text-center flex justify-center gap-2">
+                    
                     <a href="{{ route('recipe.edit',['recipe'=>$recipe['id']])}}">
-                    <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-800">Editer</button>
-                </a>
-
+                        <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-800">Editer</button>
+                    </a>
+                    
+                    <a href="{{ route('home.index',['recipe'=>$recipe['id']])}}">
+                        <button class="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800">Retour</button>
+                    </a>
+                    <form action="" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <a href="{{ route('recipe.destroy',['recipe'=>$recipe['id']])}}">
+                            <button class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-800" type="submit">Delete</button>
+                        </a>
+                    </form>
                 </div>
             </div>
         </div>
