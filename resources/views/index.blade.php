@@ -102,7 +102,7 @@
   
     <div class="border-b mb-5 flex justify-between text-sm">
         <div class=" flex items-center pb-2 pr-2  gap-10  uppercase">
-            <a href="home/explore"
+            <a href="#"
                 class="font-semibold inline-block border-b-2 border-orange-600 pb-2 pr-2 text-orange-600">Explore</a>
         </div>
   
@@ -129,13 +129,13 @@
                <a href="{{ route('recipe.show',['recipe'=>$item['id']])}}">
 
                    <h3
-                   class="m-0 text-4xl leading-tight tracking-tight text-black border-0 border-gray-200 ">
+                   class="m-0 text-2xl leading-tight tracking-tight text-black border-0 border-gray-200 ">
                    {{$item['titre']}}
-                  
+                
                </h3>
 
                </a>
-                <p class="text-gray-500 text-sm mt-2">
+                <p class="text-gray-500 text-sm mt-2 truncate">
                     {{$item['description']}}
                 </p>
             </div>
