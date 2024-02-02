@@ -135,9 +135,6 @@
                </h3>
 
                </a>
-               <hr>
-               {{$item['image']}}
-               <hr>
                 <p class="text-gray-500 text-sm mt-2">
                     {{$item['description']}}
                 </p>

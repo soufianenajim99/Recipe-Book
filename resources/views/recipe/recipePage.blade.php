@@ -82,12 +82,21 @@
                 <p class="text-gray-900 mb-4">{{
                     $recipe['description']
                    }}</p>
-    
+     <p class="text-gray-700 text-xs mt-4">created_at</p>
+     <p class="text-gray-700 text-sm ">{{$recipe['created_at']}}</p>
     
                 <div class="text-center">
-                    <button class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-800">Delete</button>
+                    <a href="{{ route('recipe.delete',['recipe'=>$recipe['id']])}}">
+                        <button class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-800">Delete</button>
+                    </a>
+                    <a href="{{ route('home.index',['recipe'=>$recipe['id']])}}">
                     <button class="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800">Retour</button>
+                </a>
+
+                    <a href="{{ route('recipe.edit',['recipe'=>$recipe['id']])}}">
                     <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-800">Editer</button>
+                </a>
+
                 </div>
             </div>
         </div>

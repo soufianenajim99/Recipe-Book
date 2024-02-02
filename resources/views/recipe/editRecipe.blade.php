@@ -11,9 +11,6 @@
 </head>
 <body>
 
-
-
-        <!-- When the mobile menu is open, add `overflow-hidden` to the `body` element to prevent double scrollbars -->
         <header class="bg-white shadow-sm lg:static lg:overflow-y-visible" x-state:on="Menu open" x-state:off="Menu closed" :class="{ 'fixed inset-0 z-40 overflow-y-auto': open }" x-data="Components.popover({ open: false, focus: false })" x-init="init()" @keydown.escape="onEscape" @close-popover-group.window="onClosePopoverGroup">
           <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="relative flex justify-between lg:gap-8 xl:grid xl:grid-cols-12">
@@ -77,19 +74,20 @@
 
 
     <div class="max-w-xl mx-auto mt-10">
-        <h2 class="text-lg font-medium mb-2 text-center">Create Recipe</h2>
+       
+        <h2 class="text-lg font-medium mb-2 text-center">Editer Recipe</h2>
         <div class="border border-gray-300 p-4 rounded-lg">
             
           <form method="post" action="{{route('recipe.store')}}" enctype="multipart/form-data">
             @csrf
                 <div class="mb-4">
                     <label class="block text-gray-700 font-medium mb-2" for="titre">
-                        Titre
+                       Nouveau Titre
                     </label>
                     <input
                         class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-gray-500"
                         id="titre" type="text"
-                        name="titre" placeholder="Entrer le titre" value="{{old('titre')}}">
+                        name="titre" placeholder="Entrer le titre" value="{{$recipe->titre}}">
                         <div class="text-center">
                           @error('titre')
                           <p class=" text-red-600">{{$message}}</p>
@@ -99,12 +97,12 @@
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 font-medium mb-2" for="name">
-                        Image
+                       Nouvelle Image
                     </label>
                     <div class="flex-1 items-center max-w-screen-sm mx-auto mb-3 space-y-4 sm:flex sm:space-y-0">
                         <div class="relative w-full">
                           <div class="items-center justify-center max-w-xl mx-auto">
-                            <label class="flex justify-center w-full h-32 px-4 transition bg-white border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none" id="drop"><span class="flex items-center space-x-2"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg><span class="font-medium text-gray-600">Drop files to Attach, or<span class="text-orange-600 underline ml-[4px]">browse</span></span></span><input type="file" name="image" class="hidden" accept="image/png,image/jpeg" id="input"></label>
+                            <label class="flex justify-center w-full h-32 px-4 transition bg-white border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none" id="drop"><span class="flex items-center space-x-2"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg><span class="font-medium text-gray-600">Drop files to Attach, or<span class="text-orange-600 underline ml-[4px]">browse</span></span></span><input type="file" name="image" class="hidden" accept="image/png,image/jpeg" id="input" value="{{$recipe->image}}"></label>
                           </div>
                         </div>
                       </div>
@@ -116,11 +114,11 @@
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 font-medium mb-2" for="comment">
-                        Description
+                       Nouvelle Description
                     </label>
                     <textarea rows="4"
                         class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-gray-500"
-                        id="comment" name="description" placeholder="Description" value="{{old('description')}}">{{old('titre')}}</textarea>
+                        id="comment" name="description" placeholder="Description">{{$recipe->description}}</textarea>
                         <div class="text-center">
                           @error('description')
                           <p class=" text-red-600">{{$message}}</p>
@@ -130,7 +128,7 @@
                 <div class="flex justify-end">
                     <button
                         class="bg-rose-600 hover:bg-rose-700 text-white font-medium py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                        type="submit">Create Recipe</button>
+                        type="submit">Editer</button>
                 </div>
             </form>
         </div>

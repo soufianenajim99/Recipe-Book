@@ -10,30 +10,6 @@ class RecipesController extends Controller
     /**
      * Display a listing of the resource.
      */
-    private static function getdata(){
-        return [
-            [
-                "id"=> 1,
-                "name"=> "tajine",
-                "description"=> "fiehfihifhfihei",
-                "ingrediant"=> "refe,frefe,ferfe"
-            ],
-            [
-                "id"=> 2,
-                "name"=> "tcscajine",
-                "description"=> "fiehfihifhfihei",
-                "ingrediant"=> "refe,frefe,ferfe",
-            ],
-            [
-                "id"=> 3,
-                "name"=> "tajicscsne",
-                "description"=> "fiehfcsihifhfihei",
-                "ingrediant"=> "refe,frefe,ferfe",
-            ],
-
-            
-        ];
-     }
     public function index()
     {
         //
@@ -52,11 +28,16 @@ class RecipesController extends Controller
      */
     public function store(Request $request)
     {
-        move_uploaded_file($_FILES["image"]["tmp_name"],'C:\xampp\htdocs\Recipe-Book\public\img\\'.$_FILES["image"]["name"]);
+        $request->validate([
+             'titre'=>'required',
+             'description'=> 'required',
+             'image'=> 'required',
+        ]);
+        move_uploaded_file($_FILES["image"]["tmp_name"],'C:\laragon\www\Recipe-Book\public\img\\'.$_FILES["image"]["name"]);
         $recipe =  new Recipe();
         
-        $recipe->titre = $request->input('titre');
-        $recipe->description = $request->input('description');
+        $recipe->titre = strip_tags($request->input('titre'));
+        $recipe->description = strip_tags($request->input('description'));
         $recipe ->image = 'img/'.$_FILES["image"]["name"];
 
         $recipe->save();
@@ -84,7 +65,10 @@ class RecipesController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $recipe= Recipe::findOrFail($id);
+        return view("recipe.editRecipe",[
+            'recipe'=> $recipe
+        ]);
     }
 
     /**
